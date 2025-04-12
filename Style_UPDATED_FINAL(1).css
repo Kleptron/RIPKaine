@@ -19,7 +19,7 @@ body {
 
 header {
   background-color: #dfe9fa;
-  padding: 4px 0;
+  padding: px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -28,24 +28,35 @@ header {
   justify-content: flex-start; /* Align items to the left */
   align-items: center; /* Vertically align items */
   height: 80px; /* Set a consistent height for the navbar */
-  padding: 0 2rem; /* Add padding for spacing */
+  padding: ;  /* Add padding for spacing */
   position: relative; /* Ensure proper positioning */
 }
 
-.logo img {
-  width: 150px; /* Adjust the logo size */
-  height: auto; /* Maintain aspect ratio */
-}
 
 .logo {
-  position: absolute; /* Position the logo relative to the navbar */
-  top: 50%;
-  left: 15%;
-  transform: translateY(-50%);
+  position: absolute; /* Position the logo relative to the screen */
+  top: 50%; /* Vertically center the logo */
+  left: 10%; /* Move the logo to the left (adjust as needed) */
+  transform: translateY(-50%); /* Adjust for vertical centering */
+  display: flex; /* Align items in a horizontal row */
+  align-items: center; /* Vertically align the image and text */
+  gap: 0; 
+}
+.logo img {
+  width:210px;
+  margin-left:270px;
+  height: auto; /* Maintain the aspect ratio */
+}
+
+.logo-name {
+  font-family: 'Hanken Grotesk', sans-serif; /* Match the font with your design */
+  font-size: 1.5rem; /* Adjust the font size */
+  font-weight: 600; /* Make the text bold */
+  color: #333b55; /* Match the color with your design */
 }
 
 .btn {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Hanken Grotesk', Helvetica, sans-serif;
   text-transform: uppercase;
 }
 
@@ -137,81 +148,93 @@ h5 {
   gap: 1rem;
 }
 
-/* ... (other styling rules remain the same) ... */
-
 /* Hero Section Styles */
 .hero {
-  /* Removed large left padding to allow full width */
-  padding: 0 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  min-height: 70vh;
   background-color: #dfe9fa;
-  color: #3b455e;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.hero-content p {
-  font-size: 1rem;
-  font-weight: normal;
-  color: #3b455e;
-  margin-top: 1rem;
-}
-
-/* Hero Title Container: Force Side-by-Side Layout */
-.hero-title-container {
+  position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  width: 100%;
+  grid-template-columns:  auto; /* Text and image in separate columns */
+  height: auto;
+  margin-bottom: 0
 }
 
-/* Allocate space: 60% for text, 40% for image */
+
+/* Hero Text Content */
 .hero-text-content {
-  flex: 0 0 50%;
-  margin-left: 70%
+  position: relative; /* Keep it positioned relative to its container */
+  font-size: 24px; /* Use fixed font size */
+  line-height: 32px; /* Use fixed line height */
+  margin-left: 610px; /* Fixed margin to keep it in place */
+  max-width: 50%; /* Optional: Limit the width of the text */
+  text-align: left; /* Ensure text alignment stays consistent */
+}
+
+/* Hero Title */
+.hero-text-content .title {
+  font-size: 49px; /* Fixed font size for the title */
+  line-height: 60px; /* Fixed line height */
+  color: #333b55;
+  font-weight: 590;
+  letter-spacing: -0.9px;
+}
+
+/* Hero Subtitle */
+.hero-text-content .subtitle {
+  font-size: 25px; /* Fixed font size for the subtitle */
+  font-family: 'Hanken Grotesk', sans-serif;
+  line-height: 29px; /* Fixed line height */
+  margin-top: 10px; /* Fixed spacing */
+  font-weight: lighter;
+  text-align: left;
+  ;
 }
 
 .hero-image-wrapper {
-  flex: 0 0 50%;
-  padding-right: 40rem;  /* Adjust this value to push the image further right */
+  position: relative;
+  margin-left: 0; /* Reset margin if needed */
+  transform: translateX(-400px); /* Move the image left */
+  margin-bottom: 0
 }
-
-/* Hero Text Styling */
-.hero .title {
-  font-family: 'Hanken Grotesk', sans-serif;
-  font-size: 3rem;
-  line-height: 1.2;
-  text-align: left;
-}
-
-.hero-title span {
-  display: block;
-  font-family: 'Hanken Grotesk', sans-serif;
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-}
-
-/* Hero Image: It will fill its container */
+/* Hero Box Image */
 .hero-box-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-top: 2rem;
-  margin-left: 0; /* Remove extraneous margins */
+  display: block; /* Ensure the image behaves as a block element */
+  max-width: 43rem; /* Keep the image size fixed */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 0
 }
+/* Disable Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-text-content {
+    font-size: 24px; /* Keep the same font size */
+    margin-left: 400px; /* Keep the same margin */
+  }
 
-/* Other Hero rules remain unchanged */
-.hero-content h1.title:not(:first-of-type) {
-  color: #333;
+  .hero-text-content .title {
+    font-size: 36px; /* Keep the same font size */
+  }
+
+  .hero-text-content .subtitle {
+    font-size: 18px; /* Keep the same font size */
+    margin-bottom: 0
+  }
+
+  .hero {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center; /* Center-align content */
+  }
+
+  .hero-image-wrapper {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 1rem; /* Add spacing between text and image */
+    margin-bottom: 0
+  }
+
+  .hero-box-image {
+    max-width: 80%; /* Scale down the image for smaller screens */
+    margin-bottom: 0
+  }
 }
 
 .hero .title span {
@@ -239,6 +262,16 @@ h5 {
 .hero-content a.btn-down:last-child {
   margin-right: 0;
 }
+.arrow-button-container {
+  display: flex; /* Use flexbox to align items in a row */
+  align-items: center; /* Vertically align the arrow and button */
+  gap: 10px; /* Add spacing between the arrow and button */
+}
+
+.arrow-image {
+  width: 50px; /* Adjust the size of the arrow */
+  height: auto; /* Maintain aspect ratio */
+}
 
 .small-icon {
   width: 50px;
@@ -251,487 +284,440 @@ h5 {
   padding: 0;
 }
 
+
 /* ... The rest of your CSS continues ... */
 
-  .section {
-    padding: 2rem 0;
-    margin-bottom: 1rem;
-    font-size: 3rem;
-    font-family: 'Hanken Grotesk'
-    background-color: blue; 
+.section {
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-family: 'Hanken Grotesk';
+}
+.trusted-logos {
+  display: flex; /* Use flexbox to align items in a row */
+  justify-content: space-between; /* Spread items evenly across the container */
+  align-items: center; /* Vertically center the images */
+  gap: 1px; /* Optional: Add consistent spacing between items */
+  margin: 5px 0; /* Add spacing above and below the row */
+}
+
+.trusted-logos img {
+  max-width: 150px; /* Ensure images stay the same size */
+  height: auto; /* Maintain aspect ratio */
+}
+p {
+  font-size: 1rem;
+  font-family: 'Hanken Grotesk';
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  background: blue; /* Remove any background color */
+  padding: 0; /* Remove padding */
+  border: none; /* Remove any borders */
+  box-shadow: none; /* Remove any shadow */
+  text-align: center; /* Center-align content */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.feature-icon {
+  width: 100px;
+  height: 100px;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Center the image */
+}
+
+.ai-features, .services-grid {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Space between grid items */
+  margin-top: 2rem; /* Add spacing above the grid */
+}
+
+.service {
+  background-color: #f9f9f9; /* Light background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1rem; /* Inner spacing */
+  text-align: center; /* Center-align text */
+  font-weight: bold; /* Make text bold */
+  color: #ad3333; /* Dark text color */
+}
+
+.intro-text {
+  color: black; /* Change text color to black */
+  font-size: 1.8rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Add the keyframes animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translate(0.2em, 1.5em) rotate(8deg);
   }
-  
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* Style for animated spans inside h1 */
+h1 span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+h1 span:nth-child(1) { animation-delay: 0s; }
+h1 span:nth-child(2) { animation-delay: 0.3s; }
+h1 span:nth-child(3) { animation-delay: 0.6s; }
+h1 span:nth-child(4) { animation-delay: 0.9s; }
+h1 span:nth-child(5) { animation-delay: 1.2s; }
+h1 span:nth-child(6) { animation-delay: 1.5s; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+/* Styling for the title spans */
+.title span {
+  display: inline-block; /* Treat each word as a block for animation */
+  opacity: 0; /* Start invisible */
+  animation: fadeIn 0.6s ease forwards; /* Apply fade-in animation */
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+}
+
+/* Staggered animation delays for each span */
+.title span:nth-child(1) { animation-delay: 0s; }    /* "Get" */
+.title span:nth-child(2) { animation-delay: 0.5s; } /* "Ranked." */
+.title span:nth-child(3) { animation-delay: 1s; }   /* "Get" */
+.title span:nth-child(4) { animation-delay: 1.5s; } /* "Seen." */
+.title span:nth-child(5) { animation-delay: 2s; }   /* "Get" */
+.title span:nth-child(6) { animation-delay: 2.5s; } /* "Busy." */
+
+/* Placeholder styling */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(0, 0, 0, 0.5); /* Faded black */
+  font-style: italic;
+}
+
+/* Flip container styling */
+.flip-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem; /* Adjust spacing as needed */
+}
+
+.flipper {
+  display: inline-block;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+/* Flip text styling without a box */
+.flip-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: black; /* Set the text color */
+  transform: rotateX(0deg);
+  backface-visibility: hidden;
+  text-align: center;
+  will-change: transform, filter;
+}
+
+/* Styles for the vertical scrolling text section */
+.scrolling-text-section {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center the text loop horizontally */
+  margin: 20px 0; /* Add some space above and below */
+}
+
+.text-loop-container {
+  overflow: hidden;
+  height: 30px; /* Adjust height to fit one word */
+  width: 200px; /* Adjust width as needed */
+}
+
+.text-loop {
+  animation: scrollWords 5s linear infinite;
+  display: flex;
+  flex-direction: column; /* Stack words vertically */
+}
+
+.text-loop span {
+  flex-shrink: 0; /* Prevent words from shrinking */
+  height: 30px; /* Match container height */
+  line-height: 30px; /* Vertically center text */
+  text-align: center; /* Center the words horizontally */
+  font-weight: bold; /* Make the words bold */
+}
+
+@keyframes scrollWords {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
+
+.subtitle {
+  font-size: 1.5rem; /* Increase the font size */
+  font-weight: 600; /* Optional: Make it slightly bolder */
+  text-align: center; /* Ensure it's centered */
+}
+
+.feature-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Style for the contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  gap: 1rem; /* Add spacing between form elements */
+}
+
+.contact-form label {
+  font-weight: bold; /* Optional: Make labels bold */
+  margin-bottom: 0.5rem; /* Add spacing below labels */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%; /* Make inputs take full width */
+  padding: 0.75rem; /* Add padding for better usability */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  font-size: 1rem; /* Adjust font size */
+}
+
+.contact-form textarea {
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 100px; /* Set a minimum height for the textarea */
+}
+
+
+.response-message.hidden {
+  display: none;
+}
+
+.response-message.visible {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+  .btn-shadow, .btn-down {
+    width: 100%; /* Make buttons full-width */
+    margin-bottom: 1rem; /* Add spacing between buttons */
+  }
+
+  .hero-container {
+    padding: 20rem; /* Reduce padding for smaller screens */
+  }
+}
+
+img {
+  max-width: 100%; /* Ensure images don't overflow their container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem; /* Reduce font size for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
   p {
     font-size: 1rem;
-    font-family: 'Hanken Grotesk'
-
   }
-  
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .feature {
-    background: blue; /* Remove any background color */
-    padding: 0; /* Remove padding */
-    border: none; /* Remove any borders */
-    box-shadow: none; /* Remove any shadow */
-    text-align: center; /* Center-align content */
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .feature:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
-  .icon {
-    width: 50px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .feature-icon {
-    width: 100px;
-    height: 100px;
-    margin-top: 1rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; /* Center the image */
-  }
-  
-  .ai-features, .services-grid {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 1.5rem; /* Space between grid items */
-    margin-top: 2rem; /* Add spacing above the grid */
-  }
-  
-  .service {
-    background-color: #f9f9f9; /* Light background */
-    border: 1px solid #ddd; /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 1rem; /* Inner spacing */
-    text-align: center; /* Center-align text */
-    font-weight: bold; /* Make text bold */
-    color: #ad3333; /* Dark text color */
-  }
-  
-
-  .intro-text {
-    color: black; /* Change text color to black */
-    font-size: 1.8rem;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 1s ease-in;
-    text-align: center;
-    max-width: 90%;
-  }
-
-  /* Add the keyframes animation */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translate(0.2em, 1.5em) rotate(8deg);
-    }
-    to {
-      opacity: 1;
-      transform: rotate(0deg);
-    }
-  }
-
-  /* Style for animated spans inside h1 */
-  h1 span {
-    display: inline-block;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-  }
-
-  h1 span:nth-child(1) { animation-delay: 0s; }
-  h1 span:nth-child(2) { animation-delay: 0.3s; }
-  h1 span:nth-child(3) { animation-delay: 0.6s; }
-  h1 span:nth-child(4) { animation-delay: 0.9s; }
-  h1 span:nth-child(5) { animation-delay: 1.2s; }
-  h1 span:nth-child(6) { animation-delay: 1.5s; }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px); /* Start slightly below */
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0); /* End at the original position */
-    }
-  }
-
-  /* Styling for the title spans */
-  .title span {
-    display: inline-block; /* Treat each word as a block for animation */
-    opacity: 0; /* Start invisible */
-    animation: fadeIn 0.6s ease forwards; /* Apply fade-in animation */
-    transform-style: preserve-3d;
-    will-change: transform, filter;
-  }
-
-  /* Staggered animation delays for each span */
-  .title span:nth-child(1) { animation-delay: 0s; }    /* "Get" */
-  .title span:nth-child(2) { animation-delay: 0.5s; } /* "Ranked." */
-  .title span:nth-child(3) { animation-delay: 1s; }   /* "Get" */
-  .title span:nth-child(4) { animation-delay: 1.5s; } /* "Seen." */
-  .title span:nth-child(5) { animation-delay: 2s; }   /* "Get" */
-  .title span:nth-child(6) { animation-delay: 2.5s; } /* "Busy." */
-
-  /* Placeholder styling */
-  .contact-form input::placeholder,
-  .contact-form textarea::placeholder {
-    color: rgba(0, 0, 0, 0.5); /* Faded black */
-    font-style: italic;
-  }
-
-
-
-  /* Flip container styling */
-  .flip-container {
-    perspective: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem; /* Adjust spacing as needed */
-  }
-
-  .flipper {
-    display: inline-block;
-    transition: transform 0.6s ease-in-out;
-    transform-style: preserve-3d;
-  }
-
-  /* Flip text styling without a box */
-  .flip-text {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: black; /* Set the text color */
-    transform: rotateX(0deg);
-    backface-visibility: hidden;
-    text-align: center;
-    will-change: transform, filter;
-  }
-
-  /* Styles for the vertical scrolling text section */
-  .scrolling-text-section {
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* Center the text loop horizontally */
-    margin: 20px 0; /* Add some space above and below */
-  }
-
-  .text-loop-container {
-    overflow: hidden;
-    height: 30px; /* Adjust height to fit one word */
-    width: 200px; /* Adjust width as needed */
-  }
-
-  .text-loop {
-    animation: scrollWords 5s linear infinite;
-    display: flex;
-    flex-direction: column; /* Stack words vertically */
-  }
-
-  .text-loop span {
-    flex-shrink: 0; /* Prevent words from shrinking */
-    height: 30px; /* Match container height */
-    line-height: 30px; /* Vertically center text */
-    text-align: center; /* Center the words horizontally */
-    font-weight: bold; /* Make the words bold */
-  }
-
-  @keyframes scrollWords {
-    0% {
-      transform: translateY(0%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
-  }
-
-
-  .btn-down:hover {
-    color: #fff;
-  }
-
-  .btn-down:hover:before {
-    bottom: -50px;
-  }
-
-  .btn-down--black {
-    color: #333;
-    border: 2px solid #333;
-  }
-
-  .btn-down--black:before {
-    background: #333;
-  }
-
-  /* Blue button styling */
-  .btn-down--blue {
-    color: #3D87FF; /* Blue text */
-    border: 2px solid #3D87FF; /* Blue border */
-    background-color: transparent; /* Transparent background */
-    transition: all 0.3s ease; /* Smooth transition */
-  }
-
-  .btn-down--blue:hover {
-    color: white; /* White text on hover */
-    background-color: #3D87FF; /* Blue background on hover */
-  }
-
-  .btn-down--green {
-    color: #808080; /* Gray text */
-    border: 2px solid #808080; /* Gray border */
-    background-color: transparent; /* Transparent background */
-    transition: all 0.3s ease; /* Smooth transition */
-  }
-
-  .btn-down--green:hover {
-    color: white; /* White text on hover */
-    background-color: #808080; /* Gray background on hover */
-    border-color: #808080; /* Keep the gray border on hover */
-  }
-
-  .btn-down--purple {
-    color: #3E358D;
-    border: 2px solid #3E358D;
-  }
-
-  .btn-down--purple:before {
-    background: #3E358D;
-  }
-
-
-  .subtitle {
-    font-size: 1.5rem; /* Increase the font size */
-    font-weight: 600; /* Optional: Make it slightly bolder */
-    text-align: center; /* Ensure it's centered */
-  }
-
-  .feature-text {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-
-
-  /* Style for the contact form */
-  .contact-form {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    gap: 1rem; /* Add spacing between form elements */
-  }
-
-  .contact-form label {
-    font-weight: bold; /* Optional: Make labels bold */
-    margin-bottom: 0.5rem; /* Add spacing below labels */
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%; /* Make inputs take full width */
-    padding: 0.75rem; /* Add padding for better usability */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 5px; /* Optional: Add rounded corners */
-    font-size: 1rem; /* Adjust font size */
-  }
-
-  .contact-form textarea {
-    resize: vertical; /* Allow vertical resizing only */
-    min-height: 100px; /* Set a minimum height for the textarea */
-  }
-
-  .contact-form button {
-    align-self: flex-start; /* Align the button to the left */
-    padding: 0.75rem 1.5rem; /* Add padding to the button */
-    font-size: 1rem; /* Adjust font size */
-    border: none;
-    border-radius: 5px; /* Optional: Add rounded corners */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Button text color */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .contact-form button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-
-  /* Response message styling */
-  .response-message {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #28a745; /* Green background */
-    color: white;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .response-message.hidden {
-    display: none;
-  }
-
-  .response-message.visible {
-    display: block;
-    opacity: 1;
-    transform: scale(1);
-  }
-
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-
-  /* Styles for smaller screens */
-  @media (max-width: 768px) {
-
-
-    .btn-shadow, .btn-down {
-      width: 100%; /* Make buttons full-width */
-      margin-bottom: 1rem; /* Add spacing between buttons */
-    }
-
-    .hero-container {
-      padding: 20rem; /* Reduce padding for smaller screens */
-    }
-  }
-
-  img {
-    max-width: 100%; /* Ensure images don't overflow their container */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2.5rem; /* Reduce font size for smaller screens */
-    }
-
-    h2 {
-      font-size: 1.8rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-
-
-  .hero-content p {
-    font-size: 1rem; /* Adjust the font size as needed */
-    font-weight: normal; /* Optional: Adjust the font weight */
-    color: #3b455e; /* Keep the existing color */
-    margin-top: 1rem; /* Keep the existing margin */
-    text-align: ; /* Ensure it stays centered */
-    padding-left: 50;
-  }
-
-  /* New styles for .btn-shadow */
-  .btn-shadow {
-    display: inline-block;
-    margin: 5px;
-    font-weight: 500;
-    line-height: 24px;
-    color: rgb(255, 255, 255);
-    position: relative;
-    text-align: center;
-    background: none;
-    outline: none; /* Removes the blue focus rectangle */
-    border: medium;
-    padding-right:1200px;
-  }
-
-  .btn-shadow::before {
-    content: "";
-    height: 40px;
-    position: absolute;
-    bottom: -1px;
-    left: 10px;
-    right: 10px;
-    z-index: 0;
-    border-radius: 2em;
-    filter: blur(14px) brightness(0.9);
-  }
-
-  .btn-shadow span {
-    display: inline-block;
-    transform-style: preserve-3d;
-    transition: 0.3s ease-out;
-    padding: 16px 60px;
-    border-radius: 50em;
-    position: relative;
-    z-index: 2;
-    will-change: transform, filter;
-    font-weight: bold; /* Make the text bold */
-  }
-
-  .btn-shadow:hover {
-    color: rgb(255, 255, 255);
-  }
-
-  .btn-shadow:hover span {
-    filter: brightness(0.9) contrast(1.2);
-    transform: scale(0.96);
-  }
-
-  .btn-shadow:hover::before {
-    bottom: 8px;
-    filter: blur(6px) brightness(0.8);
-    left: 15px;
-    right: 15px;
-  }
-
-  .btn-shadow--blue span {
-    background: rgb(58, 134, 255);
-  }
-
-  .btn-shadow:focus {
-    outline: none; /* Ensures no outline appears on focus */
-  }
-
-  a:focus {
-    outline: none;
-  }
-
-  a.btn-shadow:focus {
-    outline: none !important; /* Forcefully remove the outline */
-  }
-
-  .logo img {
-    
-    width: 300px; /* Double the original width of 150px */
-    height: auto; /* Maintain the aspect ratio */
-  }
-  .logo {
-    position: absolute; /* Position the logo relative to the screen */
-    top: 50%; /* Vertically center the logo */
-    left: 10%; /* Move the logo to the left (adjust as needed) */
-    transform: translateY(-50%); /* Adjust for vertical centering */
-  }
+}
+
+.hero-content p {
+  font-size: 1rem; /* Adjust the font size as needed */
+  font-weight: normal; /* Optional: Adjust the font weight */
+  color: #3b455e; /* Keep the existing color */
+  margin-top: 1rem; /* Keep the existing margin */
+  text-align: ; /* Ensure it stays centered */
+  padding-left: 50;
+}
+
+/* New styles for .btn-shadow */
+
+
+
+.btn:hover .btn-slide-show-text1 {
+margin-left: 65px;
+}
+
+.btn-shadow {
+display: inline-block;
+margin: 5px;
+font-weight: 500;
+line-height: 24px;
+color: rgb(255, 255, 255);
+position: relative;
+text-align: center;
+background: none;
+outline: none;
+border: none;
+}
+
+.btn-shadow::before {
+content: "";
+height: 40px;
+position: absolute;
+bottom: -1px;
+left: 10px;
+right: 10px;
+z-index: 0;
+border-radius: 2em;
+filter: blur(14px) brightness(0.9);
+}
+
+
+
+.btn:hover .btn-slide-show-text1 {
+margin-left: 65px;
+}
+
+.btn-shadow {
+display: inline-block;
+margin: 5px;
+font-weight: 500;
+line-height: 24px;
+color: rgb(255, 255, 255);
+position: relative;
+text-align: center;
+background: none;
+outline: none;
+border: none;
+}
+
+.btn-shadow::before {
+content: "";
+height: 40px;
+position: absolute;
+bottom: -1px;
+left: 10px;
+right: 10px;
+z-index: 0;
+border-radius: 2em;
+filter: blur(14px) brightness(0.9);
+}
+
+.btn-shadow span {
+display: inline-block;
+transform-style: preserve-3d;
+transition: 0.3s ease-out;
+padding: 16px 60px;
+border-radius: 50em;
+position: relative;
+z-index: 2;
+will-change: transform, filter;
+}
+
+.btn-shadow:hover {
+color: rgb(255, 255, 255);
+}
+
+.btn-shadow:hover span {
+filter: brightness(0.9) contrast(1.2);
+transform: scale(0.96);
+}
+
+.btn-shadow:hover::before {
+bottom: 8px;
+filter: blur(6px) brightness(0.8);
+left: 15px;
+right: 15px;
+}
+/* New Button Class */
+.btn-audit {
+  display: inline-block;
+  font-family: 'Hanken grotesk', Helvetica, sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  background-color: #0097ff; /* Blue background */
+  padding: 16px 40px;
+  border-radius: 50px;
+  text-decoration: none; /* Remove underline */
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+
+}
+/* Hover Effect */
+.btn-audit:hover {
+  background-color: #028ce9; /* Darker blue on hover */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+.ready-to-optimise {
+  text-align: left; /* Align the text to the right */
+  margin-left: 85px; /* Add spacing from the right edge */
+  font-size:17.5px;
+}
